@@ -1,6 +1,8 @@
-;; The first three lines of this file were inserted by DrRacket. They record metadata
-;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname p3-largest-prime-factor) (read-case-sensitive #t) (teachpacks ((lib "convert.rkt" "teachpack" "htdp") (lib "draw.rkt" "teachpack" "htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "convert.rkt" "teachpack" "htdp") (lib "draw.rkt" "teachpack" "htdp")) #f)))
+
+#lang racket/base
+
+(require test-engine/racket-tests)
+
 ;(check-expect (largest-prime-factor 10) 5)
 
 (check-expect (is-prime? 2) true)
@@ -39,23 +41,30 @@
     )
   )
 
+
+
+
      
-;(check-expect (largest-prime-factor 13195) 456)
-;
-;
-;(define (largest-prime-factor x)
-;  (largest-prime-factor-helper x 2)
-; )
-;
-;(define (largest-prime-factor-helper x y)
-;  (cond
-;    [(> y (/ x 2)) x]
-;    [(= 0 (modulo x y))
+
+
+
+(define (largest-prime-factor x)
+  (largest-prime-factor-helper x 2)
+ )
+
+(define (largest-prime-factor-helper x y)
+  (cond
+    [(> y (/ x 2)) x]
+    [(= 0 (modulo x y)) (show y)]
 ;        (cond
 ;          [(> y (largest-prime-factor-helper x (+ 1 y))) y]
 ;          [else (largest-prime-factor-helper x (+ 1 y))]
 ;          )
 ;        ]
-;    [else (largest-prime-factor-helper x (+ 1 y))]
-;    )
-;  )
+    [else (largest-prime-factor-helper x (+ 1 y))]
+    )
+  )
+
+
+
+(largest-prime-factor 13195)
