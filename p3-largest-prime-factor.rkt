@@ -19,8 +19,9 @@
 (check-expect (is-prime? 8) false)
 (check-expect (is-prime? 9) false)
 (check-expect (is-prime? 10) false)
-(check-expect (is-prime? 29) false)
-(check-expect (is-prime? 454) false)
+(check-expect (is-prime? 23) true)
+(check-expect (is-prime? 29) true)
+(check-expect (is-prime? 455) false)
 
 
 (define (is-prime? x)
@@ -34,7 +35,7 @@
     [(= x 2) true]
     [(= 0 (modulo x y)) false]
     [(> y (sqrt x)) true]
-    [else (is-prime-helper? (+ y 1) x)]
+    [else (is-prime-helper? x (+ y 1))]
     )
   )
 
